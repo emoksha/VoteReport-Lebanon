@@ -1,5 +1,5 @@
 <div class="header-info">
-	<a href ="http://test.votereport.in">Sharik 961</a>
+	<a href ="http://www.sharek961.org">Sharek 961</a>
 </div>
 
 <ul id="menu">

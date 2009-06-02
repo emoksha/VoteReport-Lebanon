@@ -5,9 +5,9 @@
 					<li><a href="<?php echo url::base() ?>"><?php echo Kohana::lang('ui_main.home'); ?></a></li>
 					<li><a href="<?php echo url::base() . "reports/submit" ?>"><?php echo Kohana::lang('ui_main.report_an_incident'); ?></a></li>
 					<li><a href="<?php echo url::base() . "alerts" ?>"><?php echo Kohana::lang('ui_main.alerts'); ?></a></li>
-					<li><a href="<?php echo url::base() . "blog/get-involved" ?>"><?php echo Kohana::lang('ui_main.help'); ?></a></li>
-					<li><a href="<?php echo url::base() . "blog/about" ?>"><?php echo Kohana::lang('ui_main.about'); ?></a></li>
-					<li><a href="mailto:contact@sharik961.org"><?php echo Kohana::lang('ui_main.contact'); ?></a></li>
+					<li><a href="<?php echo url::base() . "sharikblog/get-involved" ?>"><?php echo Kohana::lang('ui_main.help'); ?></a></li>
+					<li><a href="<?php echo url::base() . "sharikblog/about" ?>"><?php echo Kohana::lang('ui_main.about'); ?></a></li>
+					<li><a href="mailto:contact@sharek961.org"><?php echo Kohana::lang('ui_main.contact'); ?></a></li>
 					<li><a href="<?php echo url::base(). "blog" ?>"><?php echo Kohana::lang('ui_main.blog'); ?></a></li>
 					<li><a href="http://feedback.ushahidi.com/fillsurvey.php?sid=2&uid=<?php echo $_SERVER['SERVER_NAME']; ?>" target="_blank"><?php echo Kohana::lang('ui_main.feedback'); ?></a></li>
 				</ul>
