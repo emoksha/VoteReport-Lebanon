@@ -29,6 +29,8 @@ define('FEED_TYPE_PHOTO', 'PhotoReport');
 define('FEED_TYPE_TEXT', 'TextReport');
 
 // RSS feed for wp blog
+define('MAGPIE_CACHE_ON', true);
+define('MAGPIE_CACHE_DIR', SYSPATH.'../application/cache');
 require_once(SYSPATH.'libraries/magpierss/rss_fetch.inc');
 
 class Main_Controller extends Template_Controller {
