@@ -1,13 +1,13 @@
-<div class="header-info">
-	<a href ="http://www.sharek961.org">Sharek 961</a>
+<div class="span-24 prepend-10"><div id ="sharek961_menu">
+	<ul>
+		<li ><a href ="<?php echo url::base() ?>">Home</a></li>
+		<li><a href ="<?php echo url::base() . "reports/submit" ?>">Submit An Incident</a></li>
+		<li><a href ="<?php echo url::base() . "alerts" ?>">Get Alerts</a></li>
+		<li><a href ="<?php echo url::base() . "sharikblog/" ?>">Blog</a></li>
+		<li><a href ="http://www.sharek961.org/sharikblog/?page_id=2">about</a></li>
+		<li><a href ="<?php echo url::base() . "sharikblog/?page_id=7" ?>">partners</a></li>
+		<li><a href ="<?php echo url::base() . "sharikblog/?page_id=11" ?>">How to help</a></li>
+	</ul>
+	
 </div>
-
-<ul id="menu">
-	<li class="first home"><a href="/main">Home</a></li>
-	<li class="reports_submit"><a href="/reports/submit">Submit an Incident</a></li>
-	<li class="alerts"><a href="/alerts">Get Alerts</a></li>
-	<li class="blog"><a href="/sharikblog">Blog</a>
-	<li class="about"><a href="/sharikblog/?page_id=2">About </a></li>
-	<li class="about"><a href="/sharikblog/?page_id=7">Partners</a></li>
-	<li class="last help"><a  href="/sharikblog/?page_id=5">How to Help</a></li>
-</ul>
+</div>

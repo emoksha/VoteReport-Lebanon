@@ -78,13 +78,7 @@
 				
 				
 <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////-->				
-
-			<div id ="blogs">
-        <h3><?php echo $blog_feed->items[0]['title'] ?></h3>
-				<p>
-					<?php echo $blog_feed->items[0]['description'] ?>
-					<a href="<?php echo $blog_feed->items[0]['link'] ?>">Go &gt;</a>
-				</p>
+	 <?php include('latest_blog.php');	?>		
 			</div>
 			
 			<!-- //////// Middle 2nd and 3rd columns   ///////-->
@@ -130,7 +124,7 @@
 
 			<!-- add photos-->
 			<div class ="span-6" id ="userphotos">
-			<h3>User Photos</h3><a href ="#"> (upload yours)</a>
+			<h3>User Photos</h3><a href ="http://www.sharek961.org/reports/submit"> (upload yours)</a>
 			<ul class = "sharekphotos">
 			<?php 
 			        foreach ($photo_feeds as $feed) { 
@@ -162,7 +156,7 @@
 	         </li>
 	            <?php } ?>
 		
-		<a href ="#"> (upload yours)</a>
+		<a href ="http://www.sharek961.org/reports/submit"> (upload yours)</a>
 		</div>
 		
 			</div>
@@ -196,40 +190,7 @@
 
 				<div class ="span-3 last">
 				<div class ="user_area">
-				  <h3>Users' Area'</h3>
-				<h2>Subscribe</h2>
-				  <div class ="sharek_ul">
-				  <ul>
-					<li><a href ="http://www.sharek961.org/feed">RSS Feed</a></li>
-					<li><a href ="http://twitter.com/sharek961" TARGET=_BLANK>Twitter</a></li>
-					<li><a href ="http://www.facebook.com/pages/Sharek961/100789857944?ref=mf" TARGET=_BLANK>Facebook</a></li>
-					
-				  </ul>
-				  </div>
-				<h2>Help</h2>
-				  <div class ="sharek_ul">
-				  <ul>
-					<li><a href ="#">Volunteer</a></li>
-					<li><a href ="#">Spread the word</a></li>
-					
-				  </ul>
-				  </div>
-				<h2>Press Relations</h2>
-				  <div class ="sharek_ul">
-				  <ul>
-					<li><a href ="#">Contact Us</a></li>
-					<li><a href ="#">Spread The Word</a></li>
-					<li><a href ="#">Syndicate Us</a></li>		
-				  </ul>
-				  </div>
-				<h2>Organizations</h2>
-				  <div class ="sharek_ul">
-				  <ul>
-					<li><a href ="#">Register With Us</a></li>
-					<li><a href ="#">Report The Field</a></li>
-				  </ul>
-				  </div>
-
+                                  <?php include('sidebar.php'); ?>
 				</div>			
 		</div>
 	

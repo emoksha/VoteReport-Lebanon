@@ -1,5 +1,11 @@
-		<div id="content">
-			<div class="content-bg">
+<body>
+		<div class="bigcontainer">
+		
+		<div class="container ">
+			<!-- Header -->
+	    	<div class="span-24"> <img src ="../../application/views/images/home_logo_slogan.png"> </div>
+				<?php include('navigation.php'); ?>
+			<div class="span-24"> <img src ="../../application/views/images/home-banner.png"></div>
 				<!-- start report form block -->
 				<?php print form::open(NULL, array('enctype' => 'multipart/form-data', 'id' => 'reportForm', 'name' => 'reportForm')); ?>
 				<input type="hidden" name="latitude" id="latitude" value="<?php echo $form['latitude']; ?>">
@@ -7,7 +13,7 @@
 				<div class="big-block">
 					<div class="big-block-top">
 						<div class="big-block-bottom">
-							<h1><?php echo Kohana::lang('ui_main.reports_submit_new'); ?></h1>
+							<h3><?php echo Kohana::lang('ui_main.reports_submit_new'); ?></h3>
 							<?php
 							if ($form_error) {
 							?>
@@ -273,5 +279,4 @@
 				</div>
 				<?php print form::close(); ?>
 				<!-- end report form block -->
-			</div>
-		</div>
+

@@ -1,5 +1,10 @@
-		<div id="content">
-		  <div class="content-bg">
+	<div class="bigcontainer">
+	
+	<div class="container ">
+		<!-- Header -->
+    	<div class="span-24"> <img src ="../../application/views/images/home_logo_slogan.png"> </div>
+				<?php include('navigation.php'); ?>
+		<div class="span-24"> <img src ="../../application/views/images/home-banner.png"></div>
 		    <!-- start incident block -->
 		    <div class="big-block">
 		      <div class="big-block-top">
@@ -283,5 +288,3 @@
 				  </div>
 				</div>
 			  </div>
-			</div>
-		</div>
