@@ -28,6 +28,8 @@ define('FEED_TYPE_PHOTO', 'PhotoReport');
  */
 define('FEED_TYPE_TEXT', 'TextReport');
 
+// Load the rss feed parser
+require_once(SYSPATH . 'libraries/magpierss/rss_fetch.inc');
 
 class Main_Controller extends Template_Controller {
 
@@ -153,6 +155,8 @@ class Main_Controller extends Template_Controller {
 		}
 		$this->template->content->phone_array = $phone_array;
 		
+		// Get the Blog feed.
+		$this->template->content->blog_feed = fetch_rss(Kohana::config('settings.blog_rss_url'));
 
 		// Get RSS News Feeds
 		$this->template->content->feeds = ORM::factory('feed_item')
