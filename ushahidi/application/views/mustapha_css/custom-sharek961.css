@@ -1,0 +1,102 @@
+
+sharek_p {
+	float: left;
+	margin-left: 5px;
+	margin-bottom: 15px;
+}
+
+sharek_newsitem {
+	float: left;
+	margin-bottom: 6px;
+	margin-left: 5px;
+}
+
+.bigcontainer {width:1000px;padding:10;margin: -18px auto 0;
+	background-color: white;
+}
+
+sharek_h3 {font-size: 1.3em;line-height: 2;margin-bottom:1em;
+	color: #990000;
+	font-weight: bold;
+	margin-left: 5px;
+}
+
+a.sharek961_menu {
+	font-size: 0;
+}
+
+a {
+	font-weight: bold;
+	font-size: .8em;
+}
+
+div.sharek_yellowbox {
+	height: 90px;
+	background: #fff9cd 0 0;
+}
+
+span.sharek_addpadding {
+	font-size: 1em;
+}
+
+div.sharek_submit {
+	line-height: 18px;
+	background-color: green;
+	margin-top: 8px;
+	margin-left: 0;
+	padding-left: 10px;
+}
+
+a.sharek_submit, a.sharek_submit:hover {
+	text-decoration: none;
+	color: white;
+	font-weight: bold;
+}
+
+a {
+	color: #990000;
+	text-decoration: none;
+	font-size: .9em;
+	font-weight: bold;
+	font-style: normal;
+}
+
+
+.user_area {
+	border-left: 1px dotted gray;
+}
+
+div.sharek_ul {
+	top: 0;
+	margin-top: 4px;
+	border-top: 1px dotted #000;
+}
+
+
+
+#sharek961_menu ul li {
+	float: left;
+	margin-right: 6px;
+	text-transform: uppercase;
+	padding-right: 9px;
+	border-right: 1px solid gray;
+}
+
+ul {
+	list-style-type: none;
+	list-style-position: outside;
+	padding: 0;
+	margin-right: 3px;
+	margin-left: 14px;
+}
+
+
+a:hover {
+	color: #990000;
+	text-decoration: underline;
+}
+
+div.sharek_addpadding {
+	margin: 5px;
+	font-size: .9em;
+}
