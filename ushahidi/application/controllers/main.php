@@ -28,6 +28,8 @@ define('FEED_TYPE_PHOTO', 'PhotoReport');
  */
 define('FEED_TYPE_TEXT', 'TextReport');
 
+// RSS feed for wp blog
+require_once(SYSPATH.'libraries/magpierss/rss_fetch.inc');
 
 class Main_Controller extends Template_Controller {
 
@@ -152,7 +154,10 @@ class Main_Controller extends Template_Controller {
 			$phone_array[] = $sms_no3;
 		}
 		$this->template->content->phone_array = $phone_array;
-		
+
+		// Get the RSS blog feed
+		$this->template->content->blog_feed = fetch_rss(
+		    Kohana::config('settings.blog_rss_url'));
 
 		// Get RSS News Feeds
 		$this->template->content->feeds = ORM::factory('feed_item')

@@ -78,7 +78,13 @@
 				
 				
 <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////-->				
-	 <?php include('latest_blog.php');	?>		
+<div id ="blogs"><h3><?php echo $blog_feed->items[0]['title'] ?></h3>
+<p>	
+<?php echo $blog_feed->items[0]['description'] ?>&nbsp;
+<a href="<?php echo $blog_feed->items[0]['link'] ?>">More</a>
+</p>
+</div>
+
 			</div>
 			
 			<!-- //////// Middle 2nd and 3rd columns   ///////-->
