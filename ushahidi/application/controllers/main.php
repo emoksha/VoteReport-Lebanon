@@ -42,6 +42,9 @@ class Main_Controller extends Template_Controller {
 	
     // Cache instance
     protected $cache;
+
+    // Which view to user?
+    protected $view_lang = '../views';
 	
     public function __construct()
     {
@@ -52,10 +55,15 @@ class Main_Controller extends Template_Controller {
 
         // Load session
         $this->session = new Session;
-		
+
+        // Load language views
+        if(isset($_GET['lang'])){
+          $this->view_lang .= "-".substr($_GET['lang'],0,2);
+        }
+					
         // Load Header & Footer
-        $this->template->header  = new View('header');
-        $this->template->footer  = new View('footer');
+        $this->template->header  = new View($this->view_lang.'/header');
+        $this->template->footer  = new View($this->view_lang.'/footer');
 		
         // Retrieve Default Settings
 		$site_name = Kohana::config('settings.site_name');
@@ -115,7 +123,7 @@ class Main_Controller extends Template_Controller {
     public function index()
     {		
         $this->template->header->this_page = 'home';
-        $this->template->content = new View('main');
+        $this->template->content = new View($this->view_lang.'/main');
 		
         // Get all active categories
         $categories = array();
