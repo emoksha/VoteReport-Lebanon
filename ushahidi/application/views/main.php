@@ -61,7 +61,7 @@
 				              {
 				               $category_title = $category_info[0];
 				               $category_color = $category_info[1];
-				               echo '<li><a href="#" id="cat_'. $category .'"><span style="background:no-repeat url('."http://www.abdallahchamas.com/freefairelections.D/ushahidi/swatch/?c=" . $category_color . "&w=16&h=16&.png" . '); background-position:left center;">' . $category_title . '</span></a></li>';
+				               echo '<li><a href="#" id="cat_'. $category .'"><span style="background:no-repeat url('."/swatch/?c=" . $category_color . "&w=16&h=16&.png" . '); background-position:left center;">' . $category_title . '</span></a></li>';
 				               }
 				             ?>
 				        </ul>

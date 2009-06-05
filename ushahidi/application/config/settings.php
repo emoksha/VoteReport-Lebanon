@@ -19,5 +19,5 @@ $config = array
 	'items_per_page_admin' => '20',
 	'api_url' => '<script src="http://maps.google.com/maps?file=api&v=2&key=" type="text/javascript"></script>',
 	'api_url_all' => '',
-        'blog_rss_url' => 'http://www.sharek961.org/sharikblog/?feed=rss2'
+  'blog_rss_url' => 'http://www.sharek961.org/sharikblog/?feed=rss2'
 );
