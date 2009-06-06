@@ -388,7 +388,7 @@ class Reports_Controller extends Main_Controller {
 	 * @param boolean $id If id is supplied, a report with that id will be
 	 * retrieved.
 	 */
-	public function view($id = false)
+	public function view($id = false, $translation_id = false)
 	{
 		$this->template->header->this_page = 'reports';
 		$this->template->content = new View('reports_view');
@@ -400,11 +400,18 @@ class Reports_Controller extends Main_Controller {
 		else
 		{
 			$incident = ORM::factory('incident', $id);
-			
+			$translation = ORM::factory('incident_lang', $translation_id);
+
 			if ( $incident->id == 0 )	// Not Found
 			{
 				url::redirect('main');
 			}
+
+			// Get any other availible translations
+			$db = new Database();	
+			
+			$sql = sprintf("SELECT id,locale FROM incident_lang WHERE incident_id = %d", $id);
+			$available_translations = $db->query($sql);
 
 			// Comment Post?
 			// Setup and initialize form field names
@@ -468,9 +475,16 @@ class Reports_Controller extends Main_Controller {
 				}
 			}
 			
+			$this->template->content->language_names = Kohana::config('locale.all_languages');
+
+			$this->template->content->translation_id = $translation_id;
+			$this->template->content->available_translations = $available_translations;
 			$this->template->content->incident_id = $incident->id;
-			$this->template->content->incident_title = $incident->incident_title;
-			$this->template->content->incident_description = nl2br($incident->incident_description);
+			$this->template->content->incident_title = ($translation->id) ? 
+          $translation->incident_title : $incident->incident_title;
+			$this->template->content->incident_description = ($translation->id) ? 
+				  nl2br($translation->incident_description) : 
+          nl2br($incident->incident_description);
 			$this->template->content->incident_location = $incident->location->location_name;
 			$this->template->content->incident_latitude = $incident->location->latitude;
 			$this->template->content->incident_longitude = $incident->location->longitude;
