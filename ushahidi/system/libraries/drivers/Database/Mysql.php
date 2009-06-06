@@ -490,3 +490,4 @@ class Mysql_Result extends Database_Result {
 	}
 
 } // End Mysql_Result Class
+

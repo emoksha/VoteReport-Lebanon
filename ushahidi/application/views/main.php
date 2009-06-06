@@ -90,7 +90,7 @@
 			<!-- //////// Middle 2nd and 3rd columns   ///////-->
 			<div class ="span-11">
 			<div class ="span-11">
-			<div class ="span-6 append-1"><h3> How to participate </h3> </div> <div class ="span-4 last">  <div class ="sharek_submit"><a class ="sharek_submit" href ="http://www.sharek961.org/reports/submit">SUBMIT AN INCIDENT</a></div></div>				
+			<div class ="span-6 append-1"><h3><a href ="http://www.sharek961.org/sharikblog/?page_id=11"> How to participate</a> </h3> </div> <div class ="span-4 last">  <div class ="sharek_submit"><a class ="sharek_submit" href ="http://www.sharek961.org/reports/submit">SUBMIT AN INCIDENT</a></div></div>				
 			</div>
 			
 			<div class ="span-11 sharek_yellowbox">
@@ -109,12 +109,12 @@
 			</div>
 			<div class ="span-11">
 				
-			<h3>Who we are</h3>
+			<h3><a href ="http://www.sharek961.org/sharikblog/?page_id=2">Who we are</a></h3>
 			
 			<p>Sharek961 has no political interest other than to promote transparency in a country we love. We’re an independent, unaffiliated, non-partisan, all-volunteer project, and the result of the hard work and collaboration of many partners and individuals. <a href ="http://www.sharek961.org/sharikblog/?page_id=2">read more</a></p>
 			
 			<div class ="span-6" id ="userstream">
-			  <h3>User Feed Stream</h3>
+			  <h3><a href ="http://sharek961.org/reports/">User Feed Stream</a></h3>
 			
 			<?php foreach ($incidents as $incident) {
 	             $incident_id = $incident->id;

@@ -41,4 +41,14 @@
 											<li><a href ="#">Report The Field</a></li>
 
 										  </ul>
+										
+										 <h2>Partners</h2>
+											  <div class ="sharek_ul">
+											  <ul>
+												<li class ="imagelinks"><a href ="http://www.sawtashabab.com"><img src ="application/views/images/partner_logos/sawtashabab.gif" alt = "sawt Ashabab" width ="75"></a></li>
+												<li class ="imagelinks"><a href ="http://www.meedan.net"><img src ="application/views/images/partner_logos/meedan.png" alt = "Meedan" width ="75"></a></li>
+												<li class ="imagelinks"><a href ="http://www.demotix.com/lebanonelections"><img src ="application/views/images/partner_logos/demotxlogo.png" width ="75" alt = "Demotix"></a></li>
+
+											  </ul>
+											</div>
 										  </div>

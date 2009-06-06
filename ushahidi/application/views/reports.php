@@ -2,7 +2,7 @@
 	
 	<div class="container ">
 		<!-- Header -->
-    	<div class="span-24"> <img src ="../../application/views/images/home_logo_slogan.png"> </div>
+    	<div class="span-24"> <a href ="http://sharek961.org"><img src ="../../application/views/images/home_logo_slogan.png"></a></div>
 			<?php include('navigation.php'); ?>
 		<div class="span-24"> <img src ="../../application/views/images/home-banner.png"></div>
 		
@@ -12,23 +12,7 @@
 			<div class="big-block-top">
 				<div class="big-block-bottom">
 					<h1>Reports <?php echo $pagination_stats; ?></h1>
-					<div class="report_rowtitle">
-	                	<div class="report_col1">
-	                    	<strong>MEDIA</strong>
-	                    </div>
-	                    <div class="report_col2">
-	                    	<strong>REPORT TITLE</strong>
-	                    </div>
-	                    <div class="report_col3">
-	                    	<strong>DATE</strong>
-	                    </div>
-	                    <div class="report_col4">
-	                    	<strong>LOCATION</strong>
-	                    </div>
-	                    <div class="report_col5">
-	                    	<strong>VERIFIED?</strong>
-	                    </div>
-	                </div>
+					
                     <?php
                    	foreach ($incidents as $incident)
                     {

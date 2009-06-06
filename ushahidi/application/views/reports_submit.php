@@ -3,7 +3,7 @@
 		
 		<div class="container ">
 			<!-- Header -->
-	    	<div class="span-24"> <img src ="../../application/views/images/home_logo_slogan.png"> </div>
+	    	<div class="span-24"> <a href ="http://www.sharek961.org"><img src ="../../application/views/images/home_logo_slogan.png"></a> </div>
 				<?php include('navigation.php'); ?>
 			<div class="span-24"> <img src ="../../application/views/images/home-banner.png"></div>
 				<!-- start report form block -->
