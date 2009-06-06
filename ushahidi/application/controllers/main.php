@@ -199,6 +199,23 @@ class Main_Controller extends Template_Controller {
 
         // We need to use the DB builder for a custom query
         $db = new Database();	
+
+				// Get the ladeleb.org info
+				$lade_raw = file_get_contents("http://www.observe.ladeleb.org");
+				//print $lade_raw;
+				$lade_reports;
+				preg_match_all('/<div class="NewsPTitle"><a href="(.*?)">\n(.*?)\n<\/div>/', $lade_raw, $lade_reports);
+
+				$lade_reps = array();
+				for ($i = 0; $i<count($lade_reports[1]); $i++){
+					array_push($lade_reps, array(
+						'http://www.observe.ladeleb.org'.$lade_reports[1][$i], 
+					  $lade_reports[2][$i]));
+				}
+
+				$this->template->content->lade_reports = $lade_reps;
+
+				// Query
         $query = $db->query('SELECT DATE_FORMAT(incident_date, \'%Y\') AS incident_date FROM incident WHERE incident_active = 1 GROUP BY DATE_FORMAT(incident_date, \'%Y\') ORDER BY incident_date');
         foreach ($query as $slider_date)
         {
