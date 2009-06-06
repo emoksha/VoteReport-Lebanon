@@ -169,8 +169,18 @@
 			
 			
 			<div class ="span-5 last">
+
+		  <h3>Lade Reports</h3>
+
+			<?php foreach ($lade_reports as $lrep) {
+			         
+			?>   		
+			<span class ="sharek_news"><?php echo $lrep[1] ?><a href ="<?php echo $lrep[0]; ?>"> details>></a></span>
+			  
+			<?php } ?>
+
 		      <h3>News</h3>
-		
+	
 			        <?php foreach ($feeds as $feed) {
 			         $feed_id = $feed->id;
 			         $feed_title = text::limit_chars($feed->item_title, 140, '...', True);
