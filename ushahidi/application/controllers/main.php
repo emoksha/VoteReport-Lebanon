@@ -28,6 +28,11 @@ define('FEED_TYPE_PHOTO', 'PhotoReport');
  */
 define('FEED_TYPE_TEXT', 'TextReport');
 
+/**
+ * How many LADE items to publish
+ */
+define('MAX_LADE_FEED', 10);
+
 // RSS feed for wp blog
 define('MAGPIE_CACHE_ON', true);
 define('MAGPIE_CACHE_DIR', SYSPATH.'../application/cache');
@@ -211,6 +216,9 @@ class Main_Controller extends Template_Controller {
 					array_push($lade_reps, array(
 						'http://www.observe.ladeleb.org'.$lade_reports[1][$i], 
 					  $lade_reports[2][$i]));
+					if ($i >= MAX_LADE_FEED){
+						break;
+					}
 				}
 
 				$this->template->content->lade_reports = $lade_reps;
