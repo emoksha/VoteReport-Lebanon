@@ -130,18 +130,12 @@
 
 			<!-- add photos-->
 			<div class ="span-6" id ="userphotos">
-			<h3>User Photos</h3><a href ="http://www.sharek961.org/reports/submit"> (upload yours)</a>
-			<ul class = "sharekphotos">
-			<?php 
-			        foreach ($photo_feeds as $feed) { 
-			            $feed_id = $feed->id;
-			            $feed_title = text::limit_chars($feed->item_title, 140, '...', True);
-			            $feed_link = $feed->item_link;
-			        ?>
-			            <li class="photothumbnails">     
-			          <a href="<?php echo $feed_link; ?>" target="_new"><img src="<?php echo $feed_link; ?>" width="70" height="70" alt ="<?php echo $feed_title; ?>"/></a>  </li>
-			            <?php } ?>
-			</ul>
+			<h3>User Photos</h3>
+
+<iframe height="330" width="220" src="http://www.demotix.com/popup/breaking/lebanon%20elections" style="overflow: hidden;">
+ <p>Your browser does not support iframes.</p>
+</iframe>
+
 			</div>
 				
 			<div class ="span-6" id ="uservideos">
