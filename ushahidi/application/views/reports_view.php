@@ -11,6 +11,23 @@
 		        <div class="big-block-bottom">
 		          <div class="incident-name">
 		            <h1><?php echo $incident_title; ?></h1>
+								<?php foreach ($available_translations as $language){
+                  // If the translation exists, and we are displaying it
+									if($translation_id == $language->id){ 
+										print "| ".$language_names[$language->locale]. " ";
+									} else {
+									// If the translation exists and we are not displaying it
+										print '| <a href="'.url::base().'reports/view/'.$incident_id.'/'.$language->id.'">'.$language_names[$language->locale].'</a> ';
+									}
+								} // If the translation exists and we are displaying something other than English
+                if(count($available_translations) > 0 && $translation_id){
+                  print '| <a href="'.url::base().'reports/view/'.$incident_id.'">'.$language_names['en_US'].'</a>';
+								} elseif(count($available_translations) > 0){
+                  // If the translation exists and we are displaying English
+									print "| " . $language_names['en_US'];
+								}
+							  ?>
+								
 		            <ul>
 		              <li>
 		                <strong>LOCATION</strong>
