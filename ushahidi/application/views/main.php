@@ -96,7 +96,7 @@
 			<div class ="span-11 sharek_yellowbox">
 			 <div class ="span-11">	
 			  <div class ="span-1"><img src="application/views/images/icon-email.png"></div>
-			  <div class ="span-4" onclick="location.href='mailto:sharek@sharek961.org?subject=Report incident';" style="cursor: pointer;"><div class ="sharek_addpadding">you send us an Email to 'sharek@sharek961.org'</div></div>
+			  <div class ="span-4" onclick="location.href='mailto:info@sharek961.org?subject=Report incident';" style="cursor: pointer;"><div class ="sharek_addpadding">you send us an Email to 'info@sharek961.org'</div></div>
 			  <div class ="span-1"><img src="application/views/images/icon-twitter.png"></div>
 			  <div class ="span-5 last" onclick="location.href='http://www.twitter.com';" style="cursor: pointer;"><div class ="sharek_addpadding">you write a message on twitter to @sharek961</div></div>
 			 </div>
@@ -128,7 +128,9 @@
 			<div class ="span-3"><?php echo $incident_date; ?></div><div clas ="pan-3 last">| (<?php echo $incident_location; ?>)</div>
 			</div>
 
-<?php } ?>   
+<?php } ?>  
+
+<h3><a href="http://beta.meedan.net/index.php?page=events&post_id=276722" target="_new">Translated to Arabic</a> | <a href="http://beta.meedan.net/service.php?type=feeds&action=eventdetails&post_id=276722&language=ar">rss</a></h3>
 
 			<!-- add photos-->
 			<div class ="span-6" id ="userphotos">
