@@ -45,9 +45,10 @@
 										 <h2>Partners</h2>
 											  <div class ="sharek_ul">
 											  <ul>
-												<li class ="imagelinks"><a href ="http://www.sawtashabab.com"><img src ="application/views/images/partner_logos/sawtashabab.gif" alt = "sawt Ashabab" width ="75"></a></li>
+												<li class ="imagelinks"><a href ="http://www.sawtashabab.org"><img src ="application/views/images/partner_logos/sawtashabab.gif" alt = "sawt Ashabab" width ="75"></a></li>
 												<li class ="imagelinks"><a href ="http://www.meedan.net"><img src ="application/views/images/partner_logos/meedan.png" alt = "Meedan" width ="75"></a></li>
 												<li class ="imagelinks"><a href ="http://www.demotix.com/lebanonelections"><img src ="application/views/images/partner_logos/demotxlogo.png" width ="75" alt = "Demotix"></a></li>
+												<li class ="imagelinks"><a href ="http://www.therootspace.org/"><img src ="http://www.therootspace.org/site/files/rootspace-logo-sm.gif" width ="75" alt = "Root Space"></a></li>
 
 											  </ul>
 											</div>

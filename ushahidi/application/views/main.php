@@ -124,7 +124,9 @@
 	             $incident_location = $incident->location->location_name;
 	           ?>
 
-			  <span class ="sharek_feeds"><a href="<?php echo url::base() . 'reports/view/' . $incident_id; ?>"><?php echo $incident_title ?></a></span><span class ="sharek_feeds_date"><?php echo $incident_date; ?>    </span><span class ="sharek_feeds_location">   &nbsp;  (<?php echo $incident_location; ?>)</span>
+			  <div class ="span-6"><a href="<?php echo url::base() . 'reports/view/' . $incident_id; ?>"><?php echo $incident_title ?></a>
+			<div class ="span-3"><?php echo $incident_date; ?></div><div clas ="pan-3 last">| (<?php echo $incident_location; ?>)</div>
+			</div>
 
 <?php } ?>   
 
