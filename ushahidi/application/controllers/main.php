@@ -37,6 +37,9 @@ define('MAX_LADE_FEED', 10);
 define('MAGPIE_CACHE_ON', true);
 define('MAGPIE_CACHE_DIR', SYSPATH.'../application/cache');
 require_once(SYSPATH.'libraries/magpierss/rss_fetch.inc');
+define('LADE_FEED_REFRESH', 3600); // refresh every hour
+define('LADE_FEED_URL', "http://www.observe.ladeleb.org");
+
 
 class Main_Controller extends Template_Controller {
 
@@ -201,27 +204,43 @@ class Main_Controller extends Template_Controller {
         $startDate = "";
         $endDate = "";
 
-
-        // We need to use the DB builder for a custom query
-        $db = new Database();	
-
 				// Get the ladeleb.org info
-				$lade_raw = file_get_contents("http://www.observe.ladeleb.org");
-				//print $lade_raw;
-				$lade_reports;
-				preg_match_all('/<div class="NewsPTitle"><a href="(.*?)">\n(.*?)\n<\/div>/', $lade_raw, $lade_reports);
-
+				$cache_name = MAGPIE_CACHE_DIR."/lade_feed";
+				$mtime = 0;
+				if (file_exists($cache_name)){
+				  $mtime = filemtime($cache_name);
+				}
 				$lade_reps = array();
-				for ($i = 0; $i<count($lade_reports[1]); $i++){
-					array_push($lade_reps, array(
-						'http://www.observe.ladeleb.org'.$lade_reports[1][$i], 
-					  $lade_reports[2][$i]));
-					if ($i >= MAX_LADE_FEED){
-						break;
+
+				$ctx = stream_context_create(array(
+				  'http' => array(
+					  'timeout' => 10
+					)
+					)
+				); 
+
+				if(!$mtime || (time() - $mtime > LADE_FEED_REFRESH)){
+					$lade_raw = file_get_contents(LADE_FEED_URL, 0, $ctx);
+					$lade_reports;
+					preg_match_all('/<div class="NewsPTitle"><a href="(.*?)">\n(.*?)\n<\/div>/', $lade_raw, $lade_reports);
+
+					for ($i = 0; $i<count($lade_reports[1]); $i++){
+						array_push($lade_reps, array(
+						  'http://www.observe.ladeleb.org'.$lade_reports[1][$i], 
+							$lade_reports[2][$i]));
+						if ($i >= MAX_LADE_FEED){
+							break;
+						}
 					}
+					file_put_contents($cache_name, serialize($lade_reps));
+				} else {
+					$lade_reps = unserialize(file_get_contents($cache_name));
 				}
 
 				$this->template->content->lade_reports = $lade_reps;
+
+				// We need to use the DB builder for a custom query
+        $db = new Database();	
 
 				// Query
         $query = $db->query('SELECT DATE_FORMAT(incident_date, \'%Y\') AS incident_date FROM incident WHERE incident_active = 1 GROUP BY DATE_FORMAT(incident_date, \'%Y\') ORDER BY incident_date');

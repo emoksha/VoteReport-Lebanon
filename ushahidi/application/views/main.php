@@ -164,7 +164,7 @@
 			
 			<div class ="span-5 last">
 
-		  <h3>Lade Reports</h3>
+		  <h3>LADE Reports</h3>
 
 			<?php foreach ($lade_reports as $lrep) {
 			         
