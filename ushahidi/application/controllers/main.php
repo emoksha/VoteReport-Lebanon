@@ -265,14 +265,14 @@ class Main_Controller extends Template_Controller {
             $startDate .= "</optgroup>";
 			
             $endDate .= "<optgroup label=\"" . $slider_date->incident_date . "\">";
-            for ( $i=3; $i <= 5; $i++ ) 
+            for ( $i=3; $i <= 6; $i++ ) 
             {
                 if ( $i < 10 )
                 {
                     $i = "0" . $i;
                 }
                 $endDate .= "<option value=\"" . strtotime($slider_date->incident_date . "-" . $i . "-" . date('t', mktime(0,0,0,$i,1))) . "\"";
-                if ( $i == 5 )
+                if ( $i == 6 )
                 {
                     $endDate .= " selected=\"selected\" ";
                 }
