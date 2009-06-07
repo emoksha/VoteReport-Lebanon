@@ -40,6 +40,10 @@ require_once(SYSPATH.'libraries/magpierss/rss_fetch.inc');
 define('LADE_FEED_REFRESH', 3600); // refresh every hour
 define('LADE_FEED_URL', "http://www.observe.ladeleb.org");
 
+// Show reports from this month
+define('START_REPORTS_MONTH', 3);
+// To this month -- I know, bad -- TODO -- fixme
+define('END_REPORTS_MONTH', 6);
 
 class Main_Controller extends Template_Controller {
 
@@ -255,7 +259,7 @@ class Main_Controller extends Template_Controller {
         foreach ($query as $slider_date)
         {
             $startDate .= "<optgroup label=\"" . $slider_date->incident_date . "\">";
-            for ( $i=3; $i <= 5; $i++ ) {
+            for ( $i=START_REPORTS_MONTH; $i <= END_REPORTS_MONTH; $i++ ) {
                 if ( $i < 10 )
                 {
                     $i = "0" . $i;
@@ -265,14 +269,14 @@ class Main_Controller extends Template_Controller {
             $startDate .= "</optgroup>";
 			
             $endDate .= "<optgroup label=\"" . $slider_date->incident_date . "\">";
-            for ( $i=3; $i <= 6; $i++ ) 
+            for ( $i=START_REPORTS_MONTH; $i <= END_REPORTS_MONTH; $i++ ) 
             {
                 if ( $i < 10 )
                 {
                     $i = "0" . $i;
                 }
                 $endDate .= "<option value=\"" . strtotime($slider_date->incident_date . "-" . $i . "-" . date('t', mktime(0,0,0,$i,1))) . "\"";
-                if ( $i == 6 )
+                if ( $i == date("n", time()))
                 {
                     $endDate .= " selected=\"selected\" ";
                 }
