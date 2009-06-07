@@ -369,7 +369,7 @@ class Reports_Controller extends Admin_Controller
 			$post->add_rules('incident_title','required', 'length[3,200]');
 			$post->add_rules('incident_description','required');
 			$post->add_rules('incident_date','required','date_mmddyyyy');
-			$post->add_rules('incident_hour','required','between[1,12]');
+			$post->add_rules('incident_hour','required','between[0,23]');
 			$post->add_rules('incident_minute','required','between[0,59]');
 			if ($_POST['incident_ampm'] != "am" && $_POST['incident_ampm'] != "pm")
 			{
@@ -457,7 +457,7 @@ class Reports_Controller extends Admin_Controller
 				// where the $_POST['date'] is a value posted by form in mm/dd/yyyy format
 					$incident_date=$incident_date[2]."-".$incident_date[0]."-".$incident_date[1];
 					
-				$incident_time = $post->incident_hour . ":" . $post->incident_minute . ":00 " . $post->incident_ampm;
+				$incident_time = $post->incident_hour . ":" . $post->incident_minute . ":00 ";
 				$incident->incident_date = $incident_date . " " . $incident_time;
 				// Is this new or edit?
 				if ($id)	// edit
@@ -1187,7 +1187,7 @@ class Reports_Controller extends Admin_Controller
     // Time functions
     private function _hour_array()
     {
-        for ($i=1; $i <= 12 ; $i++) 
+        for ($i=0; $i <= 23 ; $i++) 
         { 
 		    $hour_array[sprintf("%02d", $i)] = sprintf("%02d", $i); 	// Add Leading Zero
 		}

@@ -1,3 +1,5 @@
+/* @override http://www.sharek961.org/application/views/mustapha_css/all.css */
+
 /* @override http://174.129.221.96/application/views/mustapha_css/all.css */
 
 /* @override http://www.abdallahchamas.com/freefairelections.D/ushahidi/application/views/mustapha_css/all.css */
@@ -33,11 +35,14 @@
 .category .grey-box .grey-box-bg{overflow:hidden;width:100%;background:url(../img/grey-box-bottom.gif) no-repeat 0 100%;
 }
 .category .grey-box ul{}
-.category .grey-box ul li{float:left;width:100%;list-style:none}
+.category .grey-box ul li{float:left;width:100%;list-style:none;
+	height: 30px;
+	margin-bottom: 4px;
+}
 .category .grey-box ul li a{float:left;padding:0 0 3px 11px;width:253px;color:#990000;font:11px/14px Arial,Helvetica,sans-serif;text-decoration:none}
 .category .grey-box ul li a:hover,.category .grey-box ul li a.active{background:url(../img/category-item-active.gif) no-repeat;color: white;}
 .category .grey-box ul li a span{display:block;padding:0 0 0 24px;float:left;cursor:pointer;
-	line-height: 20px;
+	line-height: 14px;
 }
 .category .report-btns{overflow:hidden;width:100%;clear:both;padding:18px 0 0}
 .category .report-btns a{float:left;color:#fff;font:bold 14px/34px Arial,Helvetica,sans-serif;text-decoration:none}
