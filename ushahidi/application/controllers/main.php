@@ -220,7 +220,11 @@ class Main_Controller extends Template_Controller {
 				); 
 
 				if(!$mtime || (time() - $mtime > LADE_FEED_REFRESH)){
-					$lade_raw = file_get_contents(LADE_FEED_URL, 0, $ctx);
+					$lade_raw = @file_get_contents(LADE_FEED_URL, 0, $ctx);
+					if(!$lade_raw){
+						$lade_raw = "";
+					}
+
 					$lade_reports;
 					preg_match_all('/<div class="NewsPTitle"><a href="(.*?)">\n(.*?)\n<\/div>/', $lade_raw, $lade_reports);
 
@@ -232,7 +236,11 @@ class Main_Controller extends Template_Controller {
 							break;
 						}
 					}
-					file_put_contents($cache_name, serialize($lade_reps));
+					if($lade_raw){
+						file_put_contents($cache_name, serialize($lade_reps));
+					} else {
+						touch($cache_name);
+					}
 				} else {
 					$lade_reps = unserialize(file_get_contents($cache_name));
 				}
