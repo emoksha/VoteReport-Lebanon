@@ -57,7 +57,7 @@ class Main_Controller extends Template_Controller {
 
     // Which view to user?
     protected $view_lang = '../views';
-	
+
     public function __construct()
     {
         parent::__construct();	
@@ -148,7 +148,24 @@ class Main_Controller extends Template_Controller {
         }
         $this->template->content->categories = $categories;
 		
-		
+				// See if we posted anything
+				$post = $this->input->post();
+				$this->template->content->post = $post;
+				$this->template->content->user_signup_good = false;
+				
+				// Save the user signup data, if availible
+				if ($post){
+					$user_signup = ORM::factory('user_signup');
+			
+					// If the post data validates using the rules setup in the model.
+					if ($user_signup->validate($post)){
+						$this->template->content->user_signup_good = true;
+						$user_signup->save();
+					} else {
+						$this->template->content->post = $post;
+					}
+				}
+
         // Get Reports
         // XXX: Might need to replace magic no. 8 with a constant
         $this->template->content->total_items = ORM::factory('incident')

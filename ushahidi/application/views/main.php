@@ -108,7 +108,27 @@
 		     </div>
 			</div>
 			<div class ="span-11">
-				
+	 
+	    <h3>Keep in Touch</h3>
+
+      <p>
+
+<?php
+if(!$user_signup_good){
+  if($post){
+    echo 'Submitted data had errors&nbsp';
+    echo '<ul>';
+		foreach ($post->errors() as $key => $value)
+		  echo '<li><strong>'.$key.' :</strong> '.$value.'</li>';
+		echo '</ul>';
+	}
+  echo form::open();
+	echo 'email: '.form::input('email');
+	echo form::submit('submit', 'Save');
+} else {
+  echo 'Thanks for your submission, we will be in touch.<br />'; 
+}
+?>
 			<h3><a href ="http://www.sharek961.org/sharikblog/?page_id=2">Who we are</a></h3>
 			
 			<p>Sharek961 has no political interest other than to promote transparency in a country we love. We’re an independent, unaffiliated, non-partisan, all-volunteer project, and the result of the hard work and collaboration of many partners and individuals. <a href ="http://www.sharek961.org/sharikblog/?page_id=2">read more</a></p>
