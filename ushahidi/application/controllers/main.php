@@ -142,72 +142,70 @@ class Main_Controller extends Template_Controller {
         foreach (ORM::factory('category')
                  ->where('category_visible', '1')
                  ->find_all() as $category)
-        {
+          {
             // Create a list of all categories
             $categories[$category->id] = array($category->category_title, $category->category_color);
-        }
+          }
         $this->template->content->categories = $categories;
-		
-		
+        
+        
         // Get Reports
         // XXX: Might need to replace magic no. 8 with a constant
         $this->template->content->total_items = ORM::factory('incident')
-            ->where('incident_active', '1')
-            ->limit('8')->count_all();
+          ->where('incident_active', '1')
+          ->limit('8')->count_all();
         $this->template->content->incidents = ORM::factory('incident')
-            ->where('incident_active', '1')
-			->limit('10')
-            ->orderby('incident_date', 'desc')
-            ->find_all();
+          ->where('incident_active', '1')
+          ->limit('10')
+          ->orderby('incident_date', 'desc')
+          ->find_all();
 		
-		
-		// Get SMS Numbers
-		$phone_array = array();
-		$sms_no1 = Kohana::config('settings.sms_no1');
-		$sms_no2 = Kohana::config('settings.sms_no2');
-		$sms_no3 = Kohana::config('settings.sms_no3');
-		if (!empty($sms_no1)) {
-			$phone_array[] = $sms_no1;
-		}
-		if (!empty($sms_no2)) {
-			$phone_array[] = $sms_no2;
-		}
-		if (!empty($sms_no3)) {
-			$phone_array[] = $sms_no3;
-		}
-		$this->template->content->phone_array = $phone_array;
-
-		// Get the RSS blog feed
-		$this->template->content->blog_feed = fetch_rss(
-		    Kohana::config('settings.blog_rss_url'));
-
-		// Get RSS News Feeds
-		$this->template->content->feeds = ORM::factory('feed_item')
-                  ->where('feed_type',FEED_TYPE_TEXT)
-			->limit('10')
-            ->orderby('item_date', 'desc')
-            ->find_all();
-
-                // Get video RSS feeds
-                $this->template->content->video_feeds = ORM::factory('feed_item')
-                  ->where('feed_type',FEED_TYPE_VIDEO)
-                  ->limit('3')
-                  ->orderby('item_date','desc')
-                  ->find_all();
-
-                // Get photo RSS feeds
-                $this->template->content->photo_feeds = ORM::factory('feed_item')
-                  ->where('feed_type',FEED_TYPE_PHOTO)
-                  ->limit('4')
-                  ->orderby('item_date','desc')
-                  ->find_all();
-                
-		
-		
+        
+        // Get SMS Numbers
+        $phone_array = array();
+        $sms_no1 = Kohana::config('settings.sms_no1');
+        $sms_no2 = Kohana::config('settings.sms_no2');
+        $sms_no3 = Kohana::config('settings.sms_no3');
+        if (!empty($sms_no1)) {
+          $phone_array[] = $sms_no1;
+        }
+        if (!empty($sms_no2)) {
+          $phone_array[] = $sms_no2;
+        }
+        if (!empty($sms_no3)) {
+          $phone_array[] = $sms_no3;
+        }
+        $this->template->content->phone_array = $phone_array;
+        
+        // Get the RSS blog feed
+        $this->template->content->blog_feed = 
+          fetch_rss(Kohana::config('settings.blog_rss_url'));
+        
+        // Get RSS News Feeds
+        $this->template->content->feeds = ORM::factory('feed_item')
+          ->where('feed_type',FEED_TYPE_TEXT)
+          ->limit('10')
+          ->orderby('item_date', 'desc')
+          ->find_all();
+        
+        // Get video RSS feeds
+        $this->template->content->video_feeds = ORM::factory('feed_item')
+          ->where('feed_type',FEED_TYPE_VIDEO)
+          ->limit('3')
+          ->orderby('item_date','desc')
+          ->find_all();
+        
+        // Get photo RSS feeds
+        $this->template->content->photo_feeds = ORM::factory('feed_item')
+          ->where('feed_type',FEED_TYPE_PHOTO)
+          ->limit('4')
+          ->orderby('item_date','desc')
+          ->find_all();
+        
         // Get Slider Dates By Year
         $startDate = "";
         $endDate = "";
-
+        
 				// Get the ladeleb.org info
 				$cache_name = MAGPIE_CACHE_DIR."/lade_feed";
 				$mtime = 0;
@@ -217,25 +215,27 @@ class Main_Controller extends Template_Controller {
 				$lade_reps = array();
 
 				$ctx = stream_context_create(array(
-				  'http' => array(
-					  'timeout' => 10
-					)
-					)
-				); 
-
+                                           'http' => array(
+                                                           'timeout' => 10
+                                                           )
+                                           )
+                                     ); 
+        
 				if(!$mtime || (time() - $mtime > LADE_FEED_REFRESH)){
 					$lade_raw = @file_get_contents(LADE_FEED_URL, 0, $ctx);
 					if(!$lade_raw){
 						$lade_raw = "";
 					}
-
+          
 					$lade_reports;
 					preg_match_all('/<div class="NewsPTitle"><a href="(.*?)">\n(.*?)\n<\/div>/', $lade_raw, $lade_reports);
-
+          
 					for ($i = 0; $i<count($lade_reports[1]); $i++){
-						array_push($lade_reps, array(
-						  'http://www.observe.ladeleb.org'.$lade_reports[1][$i], 
-							$lade_reports[2][$i]));
+						array_push($lade_reps, 
+                       array(
+                             'http://www.observe.ladeleb.org'
+                             .$lade_reports[1][$i], 
+                             $lade_reports[2][$i]));
 						if ($i >= MAX_LADE_FEED){
 							break;
 						}
@@ -250,7 +250,7 @@ class Main_Controller extends Template_Controller {
 				}
 
 				$this->template->content->lade_reports = $lade_reps;
-
+        
 				// We need to use the DB builder for a custom query
         $db = new Database();	
 
