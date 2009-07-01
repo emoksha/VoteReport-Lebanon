@@ -12,7 +12,34 @@
 	    	
 			<!-- ////// left main content /////////-->
 	    	<div class ="span-10">
-				<h3>Happening Right Now In Lebanon</h3>
+   <h3>Keep In Touch</h3>
+      <?php
+      if(!$user_signup_good){
+        if($post){
+          if (count($post->errors()) > 0){
+            echo '<span class="error">Your email does not appear to be valid.</span><br /><br />';
+          }
+          // Verbose messaging
+          /**
+           echo 'Submitted data had errors &nbsp';
+           echo '<ul>';
+           foreach ($post->errors() as $key => $value)
+           echo '<li><strong>'.$key.' :</strong> '.$value.'</li>';
+           echo '</ul>';
+          */
+        }
+        echo 'To be notified of future happenings with Sharek961, add your email: <br />';   
+        echo form::open();
+        echo form::input('email');
+        echo form::submit('submit', 'Save');
+      } else {
+        echo 'Thank you for your submission.'; 
+      }
+?>
+</h3>
+
+
+      <h3>Happening Right Now In Lebanon</h3>
 				
 <!-- ///////////////////////////////// THE MAP, Slider & Graph //////////////////////////////////////////-->		
 
